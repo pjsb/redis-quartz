@@ -8,6 +8,7 @@
    <name>redis-quartz</name>
 
    <properties>
+      <nexus.server.url>http://nexus</nexus.server.url>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <maven.compiler.source>1.7</maven.compiler.source>
       <maven.compiler.target>1.7</maven.compiler.target>
@@ -18,6 +19,25 @@
 
       <version.com.google.code.gson.gson>2.2.4</version.com.google.code.gson.gson>
    </properties>
+
+   <distributionManagement>
+      <!--
+          Repository, in welches die RELEASE-Artefakte deployed werden
+      -->
+      <repository>
+         <id>nexus</id>
+         <name>RepositoryProxy</name>
+         <url>${nexus.server.url}/nexus/content/repositories/releases</url>
+      </repository>
+      <!--
+          Repository, in welches die SNAPSHOT-Artefakte deployed werden
+      -->
+      <snapshotRepository>
+         <id>nexus</id>
+         <name>RepositoryProxy</name>
+         <url>${nexus.server.url}/nexus/content/repositories/snapshots</url>
+      </snapshotRepository>
+   </distributionManagement>
 
    <dependencies>
       <dependency>
